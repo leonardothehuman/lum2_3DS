@@ -1,3 +1,8 @@
+# What is this
+This is a very lazy modification to the luma3ds, that saves the settings in the directory "lum2" instead of "luma", the reason i made this was because i wanted a quick way to enable/disable ds mode's widescreen patch, so i leave the main installation of luma configured to load external FIRM and modules, and, when I don't want the patch, i load this version, wich i have configured to not load external FIRMs and modules
+
+# Original Readme:
+
 # Luma3DS
 *Noob-proof (N)3DS "Custom Firmware"*
 
