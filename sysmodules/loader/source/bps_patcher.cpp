@@ -247,7 +247,7 @@ private:
 
 static inline bool ApplyCodeBpsPatch(u64 prog_id, u8 *code, u32 size)
 {
-    char bps_path[] = "/luma/titles/0000000000000000/code.bps";
+    char bps_path[] = "/lum2/titles/0000000000000000/code.bps";
     progIdToStr(bps_path + 28, prog_id);
     util::File patch_file;
     if(!patch_file.Open(bps_path, FS_OPEN_READ))

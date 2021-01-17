@@ -120,10 +120,10 @@ static void ProcessListMenu_DumpMemory(const char *name, void *start, u32 size)
     res = FSUSER_OpenArchive(&archive, archiveId, fsMakePath(PATH_EMPTY, ""));
     if(R_SUCCEEDED(res))
     {
-        res = FSUSER_CreateDirectory(archive, fsMakePath(PATH_ASCII, "/luma/dumps"), 0);
+        res = FSUSER_CreateDirectory(archive, fsMakePath(PATH_ASCII, "/lum2/dumps"), 0);
         if((u32)res == 0xC82044BE) // directory already exists
             res = 0;
-        res = FSUSER_CreateDirectory(archive, fsMakePath(PATH_ASCII, "/luma/dumps/memory"), 0);
+        res = FSUSER_CreateDirectory(archive, fsMakePath(PATH_ASCII, "/lum2/dumps/memory"), 0);
         if((u32)res == 0xC82044BE) // directory already exists
             res = 0;
         FSUSER_CloseArchive(archive);
@@ -172,7 +172,7 @@ static void ProcessListMenu_DumpMemory(const char *name, void *start, u32 size)
     days++;
     month++;
 
-    sprintf(filename, "/luma/dumps/memory/%.8s_0x%.8lx_%.4u-%.2u-%.2uT%.2u-%.2u-%.2u.bin", name, (u32)start, year, month, days, hours, minutes, seconds);
+    sprintf(filename, "/lum2/dumps/memory/%.8s_0x%.8lx_%.4u-%.2u-%.2uT%.2u-%.2u-%.2u.bin", name, (u32)start, year, month, days, hours, minutes, seconds);
     TRY(IFile_Open(&file, archiveId, fsMakePath(PATH_EMPTY, ""), fsMakePath(PATH_ASCII, filename), FS_OPEN_CREATE | FS_OPEN_WRITE));
     TRY(IFile_Write(&file, &total, start, size, 0));
     TRY(IFile_Close(&file));

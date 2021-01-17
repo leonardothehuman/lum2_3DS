@@ -87,11 +87,11 @@ static inline bool secureInfoExists(void)
 
 static inline void loadCustomVerString(u16 *out, u32 *verStringSize, u32 currentNand)
 {
-    static const char *paths[] = { "/luma/customversion_sys.txt",
-                                   "/luma/customversion_emu.txt",
-                                   "/luma/customversion_emu2.txt",
-                                   "/luma/customversion_emu3.txt",
-                                   "/luma/customversion_emu4.txt" };
+    static const char *paths[] = { "/lum2/customversion_sys.txt",
+                                   "/lum2/customversion_emu.txt",
+                                   "/lum2/customversion_emu2.txt",
+                                   "/lum2/customversion_emu3.txt",
+                                   "/lum2/customversion_emu4.txt" };
 
     IFile file;
 
@@ -266,10 +266,10 @@ static inline bool findLayeredFsPayloadOffset(u8 *code, u32 size, u32 roSize, u3
 
 static inline bool applyCodeIpsPatch(u64 progId, u8 *code, u32 size)
 {
-    /* Here we look for "/luma/titles/[u64 titleID in hex, uppercase]/code.ips"
+    /* Here we look for "/lum2/titles/[u64 titleID in hex, uppercase]/code.ips"
        If it exists it should be an IPS format patch */
 
-    char path[] = "/luma/titles/0000000000000000/code.ips";
+    char path[] = "/lum2/titles/0000000000000000/code.ips";
     progIdToStr(path + 28, progId);
 
     IFile file;
@@ -325,10 +325,10 @@ exit:
 
 bool loadTitleCodeSection(u64 progId, u8 *code, u32 size)
 {
-    /* Here we look for "/luma/titles/[u64 titleID in hex, uppercase]/code.bin"
+    /* Here we look for "/lum2/titles/[u64 titleID in hex, uppercase]/code.bin"
        If it exists it should be a decrypted and decompressed binary code file */
 
-    char path[] = "/luma/titles/0000000000000000/code.bin";
+    char path[] = "/lum2/titles/0000000000000000/code.bin";
     progIdToStr(path + 28, progId);
 
     IFile file;
@@ -358,10 +358,10 @@ error:
 
 bool loadTitleExheaderInfo(u64 progId, ExHeader_Info *exheaderInfo)
 {
-    /* Here we look for "/luma/titles/[u64 titleID in hex, uppercase]/exheader.bin"
+    /* Here we look for "/lum2/titles/[u64 titleID in hex, uppercase]/exheader.bin"
        If it exists it should be a decrypted exheader / exheader info */
 
-    char path[] = "/luma/titles/0000000000000000/exheader.bin";
+    char path[] = "/lum2/titles/0000000000000000/exheader.bin";
     progIdToStr(path + 28, progId);
 
     IFile file;
@@ -391,10 +391,10 @@ error:
 
 static inline bool loadTitleLocaleConfig(u64 progId, u8 *mask, u8 *regionId, u8 *languageId, u8 *countryId, u8 *stateId)
 {
-    /* Here we look for "/luma/titles/[u64 titleID in hex, uppercase]/locale.txt"
+    /* Here we look for "/lum2/titles/[u64 titleID in hex, uppercase]/locale.txt"
        If it exists it should contain, for example, "EUR IT" */
 
-    char path[] = "/luma/titles/0000000000000000/locale.txt";
+    char path[] = "/lum2/titles/0000000000000000/locale.txt";
     progIdToStr(path + 28, progId);
     *mask = *regionId = *languageId = *countryId = *stateId = 0;
 
@@ -488,10 +488,10 @@ exit:
 
 static inline bool patchLayeredFs(u64 progId, u8 *code, u32 size, u32 textSize, u32 roSize, u32 dataSize, u32 roAddress, u32 dataAddress)
 {
-    /* Here we look for "/luma/titles/[u64 titleID in hex, uppercase]/romfs"
+    /* Here we look for "/lum2/titles/[u64 titleID in hex, uppercase]/romfs"
        If it exists it should be a folder containing ROMFS files */
 
-    char path[] = "/luma/titles/0000000000000000/romfs";
+    char path[] = "/lum2/titles/0000000000000000/romfs";
     progIdToStr(path + 28, progId);
 
     u32 archiveId = checkLumaDir(path);

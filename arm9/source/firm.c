@@ -249,8 +249,8 @@ void loadHomebrewFirm(u32 pressed)
 
     char absPath[24 + 255];
 
-    if(isSdMode) sprintf(absPath, "sdmc:/luma/%s", path);
-    else sprintf(absPath, "nand:/rw/luma/%s", path);
+    if(isSdMode) sprintf(absPath, "sdmc:/lum2/%s", path);
+    else sprintf(absPath, "nand:/rw/lum2/%s", path);
 
     char *argv[2] = {absPath, (char *)fbs};
 

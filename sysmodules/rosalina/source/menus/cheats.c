@@ -1783,7 +1783,7 @@ static void Cheat_LoadCheatsIntoMemory(u64 titleId)
     cheatTitleInfo = titleId;
 
     char path[64] = { 0 };
-    sprintf(path, "/luma/titles/%016llX/cheats.txt", titleId);
+    sprintf(path, "/lum2/titles/%016llX/cheats.txt", titleId);
 
     BufferedFile file;
 

@@ -43,7 +43,7 @@ static FATFS sdFs,
 
 static bool switchToMainDir(bool isSd)
 {
-    const char *mainDir = isSd ? "/luma" : "/rw/luma";
+    const char *mainDir = isSd ? "/lum2" : "/rw/lum2";
 
     switch(f_chdir(mainDir))
     {
